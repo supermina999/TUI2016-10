@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FortWar"
         mc:Ignorable="d"
-        Title="FortWar" Height="480" Width="640" ResizeMode="CanMinimize">
+        Title="FortWar" Height="768" Width="1024" ResizeMode="CanMinimize">
     <Grid x:Name="MainGrid" Background="LightGreen" MouseMove="ifMouseMove" >
         <Canvas x:Name="MainCanvas">
             <Label x:Name="CordsPanel" Canvas.Left="540" Canvas.Top="416" Height="34" Width="94" Content=""/>
