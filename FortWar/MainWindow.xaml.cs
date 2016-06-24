@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Drawing;
+//using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Windows.Resources;
 namespace FortWar
 {
     public partial class MainWindow : Window

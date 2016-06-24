@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Windows.Resources;
 
 namespace FortWar
 {
@@ -22,7 +22,7 @@ namespace FortWar
 
         Button startgame, settings, ExitButton;
         Canvas MainCanvas;
-        static public int WindowHeight = 768, WindowWidth = 1024, stepsnumber = 3, sizex = 7, sizey = 7,startfcx = 1,startfcy = sizey / 2,startscx = sizex,startscy = sizey / 2;
+        static public int WindowHeight = 768, WindowWidth = 1024, stepsnumber = 3, sizex = 7, sizey = 7,startfcx = 1,startfcy = sizey / 2,startscx = sizex,startscy = startfcy + 2;
         Label info; //Information about choosing the gamemode
         Label numberinfo; //Information about choosing the number of steps
         Label sizeinfo; //Information about choosing the size of the board
@@ -217,7 +217,7 @@ namespace FortWar
         {
             gamefield game = new gamefield();
             MainCanvas.Children.Clear();
-            game.buildfield(sizex, sizey, stepsnumber, MainCanvas);
+            game.buildfield(sizex, sizey, stepsnumber, MainCanvas, startfcx, startfcy, startscx, startscy);
         }
         private void settings_Click(object sender, RoutedEventArgs e)
         {

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Drawing;
+//using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,13 +13,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Resources;
+using System.IO;
 namespace FortWar
 {
     class hexagon
     {
         Image geksimage;
+        public bool iscity = false;
+        public bool istower = false;
+        public int team = 0;
+        Canvas z;
         public void hex(int x, int y, int w, int h, Canvas MainCanvas)
         {
+            z = MainCanvas;
             geksimage = new Image();
             BitmapImage GeksImageSource = new BitmapImage();
             GeksImageSource.BeginInit();
@@ -32,7 +39,58 @@ namespace FortWar
             geksimage.Margin = GeksMarginCord;
             geksimage.Height = h;
             geksimage.Width = w;
+            geksimage.MouseUp += geksimage_Click; 
             MainCanvas.Children.Add(geksimage);
+        }
+        public void geksimage_Click(object sender, MouseEventArgs e)
+        {
+            MessageBox.Show("");
+        }
+        public void greentower()
+        {
+            if (iscity == false)
+            {
+                team = 1;
+                istower = true;
+                geksimage.Source = new BitmapImage(new Uri("firsttower.png", UriKind.Relative));
+            }
+        }
+        public void redtower()
+        {
+            if (iscity == false)
+            {
+                team = 2;
+                istower = true;
+                geksimage.Source = new BitmapImage(new Uri("secondtower.png", UriKind.Relative));
+            }
+        }
+        public void greencity()
+        {
+            team = 1;
+            iscity = true;
+            geksimage.Source = new BitmapImage(new Uri("firstcastle.png", UriKind.Relative));
+        }
+        public void redcity()
+        {
+            team = 2;
+            iscity = true;
+            geksimage.Source = new BitmapImage(new Uri("secondcastle.png", UriKind.Relative));
+        }
+        public void green()
+        {
+            if (iscity == false && istower == false)
+            {
+                team = 1;
+                geksimage.Source = new BitmapImage(new Uri("firstteamgeks.png", UriKind.Relative));
+            }
+        }
+        public void red()
+        {
+            if (iscity == false && istower == false)
+            {
+                team = 2;
+                geksimage.Source = new BitmapImage(new Uri("secondteamcastle.png", UriKind.Relative));
+            }
         }
     }
 }
