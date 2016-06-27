@@ -19,10 +19,10 @@ namespace FortWar
 {
     class hexagon
     {
-        Image geksimage;
+        public Image geksimage;
         public bool iscity = false;
         public bool istower = false;
-        public int team = 0;
+        public int team = 0;//1 - green, 2 = red
         Canvas z;
         public void hex(int x, int y, int w, int h, Canvas MainCanvas)
         {
@@ -39,12 +39,8 @@ namespace FortWar
             geksimage.Margin = GeksMarginCord;
             geksimage.Height = h;
             geksimage.Width = w;
-            geksimage.MouseUp += geksimage_Click; 
+            //geksimage.MouseUp += geksimage_Click; 
             MainCanvas.Children.Add(geksimage);
-        }
-        public void geksimage_Click(object sender, MouseEventArgs e)
-        {
-            MessageBox.Show("");
         }
         public void greentower()
         {
@@ -89,7 +85,7 @@ namespace FortWar
             if (iscity == false && istower == false)
             {
                 team = 2;
-                geksimage.Source = new BitmapImage(new Uri("secondteamcastle.png", UriKind.Relative));
+                geksimage.Source = new BitmapImage(new Uri("secondteamgeks.png", UriKind.Relative));
             }
         }
     }
