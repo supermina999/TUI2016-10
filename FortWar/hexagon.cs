@@ -21,7 +21,7 @@ namespace FortWar
     {
         public Image geksimage;
         public bool iscity = false;
-        public bool istower = false;
+        public bool istower = false,isredtower = false,isgreentower = false;
         public int team = 0;//1 - green, 2 = red
         Canvas z;
         public void hex(int x, int y, int w, int h, Canvas MainCanvas)
@@ -46,6 +46,7 @@ namespace FortWar
         {
             if (iscity == false)
             {
+                isgreentower = true;
                 team = 1;
                 istower = true;
                 geksimage.Source = new BitmapImage(new Uri("firsttower.png", UriKind.Relative));
@@ -55,6 +56,7 @@ namespace FortWar
         {
             if (iscity == false)
             {
+                isredtower = true;
                 team = 2;
                 istower = true;
                 geksimage.Source = new BitmapImage(new Uri("secondtower.png", UriKind.Relative));
@@ -74,18 +76,24 @@ namespace FortWar
         }
         public void green()
         {
-            if (iscity == false && istower == false)
+            if (iscity == false)
             {
-                team = 1;
-                geksimage.Source = new BitmapImage(new Uri("firstteamgeks.png", UriKind.Relative));
+                    team = 1;
+                if (istower == false)
+                {
+                    geksimage.Source = new BitmapImage(new Uri("firstteamgeks.png", UriKind.Relative));
+                }
             }
         }
         public void red()
         {
-            if (iscity == false && istower == false)
+            if (iscity == false)
             {
                 team = 2;
-                geksimage.Source = new BitmapImage(new Uri("secondteamgeks.png", UriKind.Relative));
+                if (iscity == false && istower == false)
+                {
+                    geksimage.Source = new BitmapImage(new Uri("secondteamgeks.png", UriKind.Relative));
+                }
             }
         }
     }

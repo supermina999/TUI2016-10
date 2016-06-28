@@ -19,10 +19,11 @@ namespace FortWar
     class gamefield
     {
         hexagon[,] hexarray;
-        int coll, row;
-        int step, queue = 3;
+        int coll, row,numofsteps,redscore = 0,greenscore = 0;
+        int step = 0, queue = 3;
         public void buildfield(int borderx, int bordery, int numberofsteps, Canvas MainCanvas,int firstcityx,int firstcityy,int secondcityx,int secondcityy)
         {
+            numofsteps = numberofsteps;
             coll = borderx;
             row = bordery;
             hexarray = new hexagon[borderx, bordery];
@@ -635,7 +636,7 @@ namespace FortWar
                     }
                 }
             }
-            if (hexarray[xelement, yelement].iscity == false && hexarray[xelement, yelement].istower == false && clickcheck(xelement,yelement,queue))
+            if (hexarray[xelement, yelement].iscity == false && hexarray[xelement, yelement].isgreentower == false && hexarray[xelement, yelement].isredtower == false && clickcheck(xelement,yelement,queue))
             {
                 fillwithcolour(xelement, yelement, queue);
                 if(queue % 2 == 0)
@@ -646,7 +647,53 @@ namespace FortWar
                 {
                     hexarray[xelement, yelement].redtower();
                 }
+                for(int i = 0;i < coll;i++)
+                {
+                    for(int j = 0;j < row;j++)
+                    {
+                        if(hexarray[i,j].team == 1 && hexarray[i,j].isredtower == true)
+                        {
+                            hexarray[i, j].greentower();
+                            fillwithcolour(i, j, 2);
+                        }
+                        else if(hexarray[i, j].team == 2 && hexarray[i, j].isgreentower == true)
+                        {
+                            hexarray[i, j].redtower();
+                            fillwithcolour(i, j, 3);
+                        }
+                    }
+                }
                 queue++;
+                step++;
+                if((step / 2) > numofsteps)
+                {
+                    for (int i = 0; i < coll; i++)
+                    {
+                        for (int j = 0; j < row; j++)
+                        {
+                            if (hexarray[i, j].team == 1)
+                            {
+                                greenscore++;
+                            }
+                            else if (hexarray[i, j].team == 2)
+                            {
+                                redscore++;
+                            }
+                        }
+                    }
+                    if(greenscore > redscore)
+                    {
+                        MessageBox.Show("Зеленые победели с превосходством в " + (greenscore - redscore).ToString(), "Конец", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                    else if(redscore > greenscore)
+                    {
+                        MessageBox.Show("Красные победели с превосходством в " + (redscore - greenscore).ToString(), "Конец", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                    else if(redscore == greenscore)
+                    {
+                        MessageBox.Show("Ничья", "Конец", MessageBoxButton.OK, MessageBoxImage.Hand);
+                    }
+                }
             }
         }
     }
