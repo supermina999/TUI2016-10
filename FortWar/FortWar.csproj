@@ -120,6 +120,14 @@
   <ItemGroup>
     <Resource Include="secondtower.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="mountiangeks.png" />
+    <Resource Include="mountiangreen.png" />
+    <Resource Include="mountianred.png" />
+    <Resource Include="watergeks.png" />
+    <Resource Include="watergreen.png" />
+    <Resource Include="waterred.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -654,18 +654,18 @@ namespace FortWar
                         if(hexarray[i,j].team == 1 && hexarray[i,j].isredtower == true)
                         {
                             hexarray[i, j].greentower();
-                            fillwithcolour(i, j, 2);
+                            fillwithcolour(i, j, queue);
                         }
                         else if(hexarray[i, j].team == 2 && hexarray[i, j].isgreentower == true)
                         {
                             hexarray[i, j].redtower();
-                            fillwithcolour(i, j, 3);
+                            fillwithcolour(i, j, queue);
                         }
                     }
                 }
                 queue++;
                 step++;
-                if((step / 2) > numofsteps)
+                if ((step / 2) > numofsteps)
                 {
                     for (int i = 0; i < coll; i++)
                     {
@@ -694,6 +694,7 @@ namespace FortWar
                         MessageBox.Show("Ничья", "Конец", MessageBoxButton.OK, MessageBoxImage.Hand);
                     }
                 }
+                
             }
         }
     }

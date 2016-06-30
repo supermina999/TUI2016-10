@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FortWar"
         mc:Ignorable="d"
         Title="FortWar" Height="768" Width="1024" ResizeMode="CanMinimize">
-    <Grid x:Name="MainGrid" Background="LightGreen" MouseMove="ifMouseMove" >
+    <Grid x:Name="MainGrid" Background="LightGreen">
         <Canvas x:Name="MainCanvas">
             <Label x:Name="CordsPanel" Canvas.Left="540" Canvas.Top="416" Height="34" Width="94" Content=""/>
 

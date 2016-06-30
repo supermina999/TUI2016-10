@@ -18,14 +18,6 @@ namespace FortWar
 {
     public partial class MainWindow : Window
     {
-        public static int MouseX = 0, MouseY = 0;
-        public void ifMouseMove(object sender, MouseEventArgs e)
-        {
-            Point MousePt = e.GetPosition(this);
-            CordsPanel.Content = String.Format("X: {0}, Y: {1}", MousePt.X, MousePt.Y);
-            MouseX = (int)MousePt.X;
-            MouseY = (int)MousePt.Y;
-        }
         public MainWindow()
         {
             InitializeComponent();
