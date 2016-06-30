@@ -16,7 +16,6 @@ using System.Windows.Shapes;
 using System.Windows.Resources;
 namespace FortWar
 {
-//kek
     public partial class MainWindow : Window
     {
         public MainWindow()
